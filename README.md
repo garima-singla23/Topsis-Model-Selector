@@ -127,12 +127,12 @@ A bar chart visualizes TOPSIS scores, enabling quick and intuitive comparison.
 
 ---
 
-### ⬇️ Step 8: Export Results
+###  Step 8: Export Results
 Users can download the ranking results as a CSV file for reporting and further analysis.
 
 ---
 
-### 🔁 System Flow Summary
+###  System Flow Summary
 Fetch models → Select models → Assign weights → Generate metadata → Apply TOPSIS → Display ranking → Export results
 
 ---
