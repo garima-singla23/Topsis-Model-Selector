@@ -2,6 +2,9 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pandas as pd
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
 
 from hf_utils import fetch_text_classification_models, get_model_metadata
 from topsis_core import run_topsis_df
@@ -83,3 +86,15 @@ def rank_models(req: TopsisRequest):
     )
 
     return result.to_dict(orient="records")
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+app.mount(
+    "/static",
+    StaticFiles(directory=os.path.join(BASE_DIR, "../frontend")),
+    name="static"
+)
+
+@app.get("/")
+def serve_frontend():
+    return FileResponse(os.path.join(BASE_DIR, "../frontend/index.html"))
