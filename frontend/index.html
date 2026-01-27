@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TOPSIS Model Selector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Text Classification Model Selector (TOPSIS)</h1>
+    <p class="subtitle">
+      Select 4–5 Hugging Face models, assign weights, and rank them using TOPSIS.
+    </p>
+  </header>
+
+  <section class="card">
+    <h2>Select Models</h2>
+    <p id="selection-count">Selected: 0 / 5</p>
+    <input
+  type="text"
+  id="model-search"
+  placeholder="🔍 Search models..."
+  oninput="filterModels()"
+  autocomplete="off"
+  autocorrect="off"
+  autocapitalize="off"
+  spellcheck="false"
+  inputmode="none"
+  class="search-box"
+/>
+    <div id="models-box" class="models-grid"></div>
+  </section>
+
+  <section class="card">
+    <h2>Set Weights</h2>
+    <div class="weights-grid">
+  <label>Accuracy
+    <input id="accuracy" value="0.4">
+  </label>
+
+  <label>Latency
+    <input id="latency" value="0.2">
+  </label>
+
+  <label>Model Size
+    <input id="size" value="0.2">
+  </label>
+
+  <label>Language Coverage
+    <input id="languages" value="0.2">
+  </label>
+</div>
+
+    <div class="actions">
+      <button onclick="runTopsis()">Rank Models</button>
+      <button id="download-btn" onclick="downloadCSV()" disabled>
+        Download CSV
+      </button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Scorecard</h2>
+    <canvas id="scoreChart" height="120"></canvas>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Model</th>
+          <th>TOPSIS Score</th>
+        </tr>
+      </thead>
+      <tbody id="result"></tbody>
+    </table>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

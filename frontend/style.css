@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  color: #e5e7eb;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+}
+
+header {
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #38bdf8;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #94a3b8;
+  font-size: 15px;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  color: #facc15;
+  margin-bottom: 15px;
+}
+
+/* Models */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 20px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.model-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.model-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Weights */
+.weights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.weights-grid input {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 5px;
+}
+
+/* Buttons */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+button:first-child {
+  background: #22c55e;
+  color: #022c22;
+}
+
+button:first-child:hover {
+  background: #16a34a;
+}
+
+#download-btn {
+  background: #2563eb;
+  color: white;
+}
+
+#download-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #020617;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #1e293b;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.actions {
+  position: sticky;
+  bottom: 10px;
+  background: #020617;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.search-box {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+
+  .models-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+
+mark {
+  background: #facc15;
+  color: #020617;
+  padding: 1px 3px;
+  border-radius: 4px;
+}
+
+.search-box {
+  outline: none;
+  font-size: 15px;
+}
+
+.search-box:focus {
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4);
+}
